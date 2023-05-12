@@ -14,12 +14,20 @@ def compare_extensions(file_name, List_of_extensions) :
             continue
 
 
+def is_my_path_included(path_1, path_2) :
+    delete_path_1 =  delete_path_2 =False
+    if path_1.find(path_2)  :
+        delete_path_1 = True
+    if path_2.find(path_1) :
+        delete_path_2 = True
+    return(delete_path_1,delete_path_2)
+
 
 
 
 # 1 #Quel type de fichier- loop ajouter un chemin
 #* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-paths_to_check =  ['C:/Users/altji/Pictures','C:/Users/altji/Documents/Guild Wars 2']
+paths_to_check =  ['C:/Users/altji/Pictures','C:/Users/altji/Documents/Guild Wars 2','C:/Users/altji/Pictures/toto','C:/Users/altji/Pictures/pingouin']
 # i=0
 # while 0 <= i:
 #     from tkinter.filedialog import askdirectory
@@ -31,6 +39,30 @@ paths_to_check =  ['C:/Users/altji/Pictures','C:/Users/altji/Documents/Guild War
 #     else :
 #         i+=1
 
+
+#verif sur le fait que les chemins ne sont pas inclus l un dans l autre
+
+for  indexX in range(0, len(paths_to_check)-1) :
+    print(f"checking {paths_to_check[indexX]}")
+    for indexY in range(indexX+1, len(paths_to_check)) :
+            print(f"checking {paths_to_check[indexX]} and {paths_to_check[indexY]}")
+
+            if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) == (True, True):
+                print("true, true")
+                #paths_to_check.remove(indexY)
+                #paths_to_check.pop(indexY)
+                #del paths_to_check[indexX]
+
+            # if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) ==(False, True):
+            #     # del paths_to_check[indexY]
+            #     print("False, true")
+            # if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) ==(True, False):
+            #     # paths_to_check.remove(indexX)
+            #     print("true, False")
+            indexY=+1
+    indexX=indexX+1
+
+print(paths_to_check)
 #===============================================================
 
 
