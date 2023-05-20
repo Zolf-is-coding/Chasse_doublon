@@ -1,33 +1,17 @@
 import os
 
 
-#===============================================================
-# * * * * * * * * * * * F O N C T I O N S * * * * * * * * * * *
-#===============================================================
-def compare_extensions(file_name, List_of_extensions) :
-
-    extension = os.path.splitext(file_name)[-1].lower()
-    for x in (List_of_extensions) :
-        if x == extension :
-            return(True)
-        else :
-            continue
 
 
-def is_my_path_included(path_1, path_2) :
-    delete_path_1 =  delete_path_2 =False
-    if path_1.find(path_2)  :
-        delete_path_1 = True
-    if path_2.find(path_1) :
-        delete_path_2 = True
-    return(delete_path_1,delete_path_2)
+
+
 
 
 
 
 # 1 #Quel type de fichier- loop ajouter un chemin
 #* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-paths_to_check =  ['C:/Users/altji/Pictures','C:/Users/altji/Documents/Guild Wars 2','C:/Users/altji/Pictures/toto','C:/Users/altji/Pictures/pingouin']
+paths =  ['C:/Users/altji/Pictures','C:/Users/altji/Pictures/toto','C:/Users/altji/Pictures/pingouin', 'C:/Users/altji/Documents/Guild Wars 2/toto','C:/Users/altji/Documents/Guild Wars 2']
 # i=0
 # while 0 <= i:
 #     from tkinter.filedialog import askdirectory
@@ -40,38 +24,11 @@ paths_to_check =  ['C:/Users/altji/Pictures','C:/Users/altji/Documents/Guild War
 #         i+=1
 
 
-#verif sur le fait que les chemins ne sont pas inclus l un dans l autre
-
-for  indexX in range(0, len(paths_to_check)-1) :
-    print(f"checking {paths_to_check[indexX]}")
-    for indexY in range(indexX+1, len(paths_to_check)) :
-            print(f"checking {paths_to_check[indexX]} and {paths_to_check[indexY]}")
-
-            if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) == (True, True):
-                print("true, true")
-                #paths_to_check.remove(indexY)
-                #paths_to_check.pop(indexY)
-                #del paths_to_check[indexX]
-
-            # if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) ==(False, True):
-            #     # del paths_to_check[indexY]
-            #     print("False, true")
-            # if is_my_path_included(paths_to_check[indexX],paths_to_check[indexY]) ==(True, False):
-            #     # paths_to_check.remove(indexX)
-            #     print("true, False")
-            indexY=+1
-    indexX=indexX+1
-
-print(paths_to_check)
-#===============================================================
 
 
 
 
-# 2 ajouter une verif sur le fait que les chemins ne sont pas inclus l un dans l autre
-#* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-#===============================================================
+paths=are_my_paths_redondant(paths)
 
 
 
@@ -98,7 +55,7 @@ all_files_to_compare  = {}
 # 3 lister les fichiers
 #* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 special_i = 0
-for path in paths_to_check :
+for path in paths :
     #print(f'path we are testing {path}')
     #print(special_i)
     for root, dirs, files in os.walk(path):
