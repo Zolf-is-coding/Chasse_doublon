@@ -8,7 +8,7 @@ import os
 
 def update_paths_visible_for_user ():
     global globalpath
-    global Liste_chemins_lisibles
+    global liste_chemins_lisibles
     Liste_chemins_lisibles = ""
     for element in globalpath :
         Liste_chemins_lisibles =Liste_chemins_lisibles + element + "\n "
@@ -61,39 +61,10 @@ def boutton_verifier_mes_doublons():
             #print(all_files_to_compare[y]['filename'])
             if str.lower(all_files_to_compare[y]['filename'])==File_in_work :
                 print(f"its a match ! the file {File_in_work} in {all_files_to_compare[id]['path_w_file']}  is a double of {all_files_to_compare[y]['filename']} in {all_files_to_compare[y]['path_w_file']}" )
-                temp_Tupple = (all_files_to_compare[y]['path_w_file'],all_files_to_compare[y]['filename'],all_files_to_compare[id]['path_w_file'],all_files_to_compare[id]['filename'])
+                temp_Tupple = (all_files_to_compare[y]['path_w_file'],all_files_to_compare[id]['path_w_file'],all_files_to_compare[y]['filename'])
                 List_of_my_doubles.append(temp_Tupple)
        # print(File_in_work)
 
-        show_all_doubles(List_of_my_doubles)
-
-
-        """ This fonction takes the List_of_double global as its entry"""
-def show_all_doubles(List_to_show) :
-    for i in range(0, len(List_to_show)):
-        frame = tk.Frame(
-            master=fen1,
-            relief=tk.RAISED,
-            borderwidth=1
-        )
-
-        label0 = tk.Label(master=fen1, text=f"ins boutton delete")
-        label0.grid(row=8 + i, column=0)
-
-        label1 = tk.Label(master=fen1, text=f"{List_to_show[i][0]}")
-        label1.grid(row=8 + i, column=1)
-
-        label2 = tk.Label(master=fen1, text=f"{List_to_show[i][1]}")
-        label2.grid(row=8 + i, column=2)
-
-        label3 = tk.Label(master=fen1, text=f"{List_to_show[i][2]}")
-        label3.grid(row=8 + i, column=3)
-
-        label4 = tk.Label(master=fen1, text=f"{List_to_show[i][3]}")
-        label4.grid(row=8 + i, column=4)
-
-        label5 = tk.Label(master=fen1, text=f"ins boutton delete")
-        label5.grid(row=8 + i, column=5)
 
 
 
@@ -106,13 +77,12 @@ fen1.geometry("800x800")
 ############      G L O B A L E S     #############
 globalpath = []
 
-Liste_chemins_lisibles = ''
+liste_chemins_lisibles = ''
 all_files_to_compare  = {}
-List_of_my_doubles = []
 
 ##assignet vairable for easier testing
 typefichier= ['.jpg',".png",".jpeg"]
-#globalpath = ['C:/Users/altji/Pictures']
+globalpath = ['C:/Users/altji/Pictures']
 
 ########### D E B U T    D U   C O D E ####
 tex1 = Label(fen1, text='Bonjour tout le monde !', fg='red')
@@ -135,7 +105,7 @@ lbl_spacer.grid(row=3, column=5, sticky="e", padx=5, pady=5)
 lbl_your_selected_paths = tk.Label(fen1, text=f'vos chemins sont :')
 lbl_your_selected_paths.grid(row=4, column=1, sticky="e", padx=5, pady=5)
 
-lbl_variable_content = tk.Label(fen1, text=Liste_chemins_lisibles, anchor='w')
+lbl_variable_content = tk.Label(fen1, text=liste_chemins_lisibles, anchor='w')
 lbl_variable_content.grid(row=4, column=2, sticky="e", padx=5, pady=5)
 
 
@@ -155,10 +125,6 @@ lbl_error_content.grid(row=6, column=2, sticky="e", padx=5, pady=5)
 
 lbl_spacer = tk.Label(fen1, text="")
 lbl_spacer.grid(row=7, column=5, sticky="e", padx=5, pady=5)
-
-#List_of_my_doubles = [('toto','c/toto','toto2','c/toto2'),('toto','c/toto','toto2','c/toto2')]
-
-
 
 
 fen1.mainloop()
