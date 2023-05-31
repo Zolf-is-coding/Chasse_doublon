@@ -30,11 +30,8 @@ def boutton_verifier_mes_doublons():
     special_i = 0
     for path in globalpath:
         print(path)
-        # print(f'path we are testing {path}')
-        # print(special_i)
         for root, dirs, files in os.walk(path):
             for file in files:
-                # print(f'     file we are testing {os.path.join(file)}')
                 if compare_extensions(os.path.join(file), typefichier):
                     all_files_to_compare[special_i] = {'path_w_file': os.path.abspath(root),
                                                        'path_wo_file': os.path.dirname(file),
@@ -47,7 +44,6 @@ def boutton_verifier_mes_doublons():
 
     for id in all_files_to_compare:
         file_in_work = str.lower(all_files_to_compare[id]['filename'])
-        # print(file_in_work)
         for y in range(id + 1, len(all_files_to_compare.keys())):
             if str.lower(all_files_to_compare[y]['filename']) == file_in_work:
                 print(
