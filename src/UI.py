@@ -8,7 +8,7 @@ import os
 
 def update_paths_visible_for_user ():
     global globalpath
-    global Liste_chemins_lisibles
+    global liste_chemins_lisibles
     Liste_chemins_lisibles = ""
     for element in globalpath :
         Liste_chemins_lisibles =Liste_chemins_lisibles + element + "\n "
@@ -77,7 +77,7 @@ fen1.geometry("800x800")
 ############      G L O B A L E S     #############
 globalpath = []
 
-Liste_chemins_lisibles = ''
+liste_chemins_lisibles = ''
 all_files_to_compare  = {}
 
 ##assignet vairable for easier testing
@@ -105,7 +105,7 @@ lbl_spacer.grid(row=3, column=5, sticky="e", padx=5, pady=5)
 lbl_your_selected_paths = tk.Label(fen1, text=f'vos chemins sont :')
 lbl_your_selected_paths.grid(row=4, column=1, sticky="e", padx=5, pady=5)
 
-lbl_variable_content = tk.Label(fen1, text=Liste_chemins_lisibles, anchor='w')
+lbl_variable_content = tk.Label(fen1, text=liste_chemins_lisibles, anchor='w')
 lbl_variable_content.grid(row=4, column=2, sticky="e", padx=5, pady=5)
 
 
