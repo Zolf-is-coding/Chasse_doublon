@@ -45,8 +45,14 @@ def are_my_paths_redondant_v2(paths_to_check):
         return paths_to_check
     index_x = 0
     while index_x in range(0, len(paths_to_check)):
+
         index_y: int = index_x+1
         while index_y in range(index_x+1, len(paths_to_check)):
+            # print('compare ' +  str(paths_to_check[index_y]) + " and " + str(paths_to_check[index_x]))
+            if paths_to_check[index_x] == paths_to_check[index_y]:
+                showinfo("info : ", str(paths_to_check[index_y]) + " est deja selectionne")
+                del paths_to_check[index_y]
+                index_y = index_x
             if is_my_path_included(paths_to_check[index_x], paths_to_check[index_y]) == (True, False):
                 showinfo("info : ", str(paths_to_check[index_y]) + "\n is included in \n" + str(paths_to_check[index_x]) + " and was deleted.\n")
                 del paths_to_check[index_y]
